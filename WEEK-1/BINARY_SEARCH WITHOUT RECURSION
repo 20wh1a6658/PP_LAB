@@ -1,0 +1,24 @@
+def binary_search(sorted_list, key):
+    low = 0
+    high = len(sorted_list) - 1
+    while low <= high:
+        mid = (low+high)//2
+        if sorted_list[mid] < key:
+            low  = mid+1
+        elif sorted_list[mid] > key:
+            high = mid-1
+        else:
+            return mid
+    return -1
+
+sorted_list = [1, 2, 3, 4, 5]
+key_to_search = 1
+print("the list is")
+print(sorted_list)
+
+result = binary_search(sorted_list, key_to_search)
+
+if result != -1:
+    print("element found at index", str(result))
+else:
+    print("element not found")
