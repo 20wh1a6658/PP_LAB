@@ -1,0 +1,25 @@
+lst = []
+n = int(input("enter the size of list"))
+
+for i in range(n):
+    num = int(input("enter the elements of the list"))
+    lst.append(num)
+
+key = int(input("enter the key element to be searched"))
+
+def recursive_linear_search(arr, key, index, pos):
+    if(index < pos):
+        return -1
+    elif(arr[index] == key):
+        pos = index + 1
+        return pos
+    else:
+        return pos
+    return  recursive_linear_search(arr, index+1, key, pos-1)
+
+rec = recursive_linear_search(lst, 0, len(lst)-1, key)
+
+if rec != -1:
+    print('{} was found at index {}.'.format(key, rec))
+else:
+    print('{} was not found {}.'.format(key))
